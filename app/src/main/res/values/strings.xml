@@ -9,7 +9,8 @@
     <string name="decrypt">Decrypt</string>
     <string name="encrypt_mode">Encryption Mode</string>
     <string name="decrypt_mode">Decryption Mode</string>
-    <string name="result">Output</string>
     <string name="error">Fields cannot be empty !</string>
     <string name="output">Output</string>
+    <string name="encryption_output">Encryption Message</string>
+    <string name="decryption_output">Decryption Message</string>
 </resources>
