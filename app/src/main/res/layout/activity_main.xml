@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:src="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:src="http://schemas.android.com/tools"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -39,15 +39,15 @@
             android:id="@+id/tv_welcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="44dp"
+            android:layout_marginEnd="24dp"
             android:fontFamily="@font/avenir_medium"
+            android:gravity="center_horizontal|center_vertical"
             android:text="@string/selection_choosing"
             android:textColor="@color/white"
             android:textSize="28sp"
-            android:gravity="center_horizontal|center_vertical"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -77,11 +77,10 @@
                     android:layout_width="100dp"
                     android:layout_height="150dp"
                     android:contentDescription="@string/asymmetric"
-                    android:src="@drawable/asymmetric"
-                    />
+                    android:src="@drawable/asymmetric" />
 
                 <Button
-                    android:id="@+id/btn_type_indication"
+                    android:id="@+id/btn_asymmetric"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_btn_primary"
@@ -117,18 +116,17 @@
                     android:layout_width="100dp"
                     android:layout_height="150dp"
                     android:contentDescription="@string/symmetric"
-                    android:src="@drawable/symmetric"
-                    />
+                    android:src="@drawable/symmetric" />
 
                 <Button
-                    android:id="@+id/symmetric"
+                    android:id="@+id/btn_symmetric"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_btn_primary"
                     android:text="@string/symmetric"
-                    src:text="@string/symmetric"
                     android:textAllCaps="false"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    src:text="@string/symmetric" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>

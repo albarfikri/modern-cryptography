@@ -3,4 +3,13 @@
     <string name="selection_choosing">Select Cryptography\nModern Type</string>
     <string name="symmetric">Symmetric</string>
     <string name="asymmetric">Asymmetric</string>
+    <string name="key">Key</string>
+    <string name="message">Message</string>
+    <string name="encrypt">Encrypt</string>
+    <string name="decrypt">Decrypt</string>
+    <string name="encrypt_mode">Encryption Mode</string>
+    <string name="decrypt_mode">Decryption Mode</string>
+    <string name="result">Output</string>
+    <string name="error">Fields cannot be empty !</string>
+    <string name="output">Output</string>
 </resources>
