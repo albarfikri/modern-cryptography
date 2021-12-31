@@ -52,7 +52,7 @@ class AsymmetricCryptographyActivity : AppCompatActivity() {
             if (!isEmptyFields) {
                 closeKeyboard(binding.decrypt)
 
-                binding.plaintext.setText(decrypt())
+                binding.chipertext.setText(decrypt())
             }
         }
 
@@ -67,6 +67,7 @@ class AsymmetricCryptographyActivity : AppCompatActivity() {
             when (true) {
                 checkId == R.id.encryption_selection -> {
                     supportActionBar(R.id.encryption_selection)
+                    reverseEditText("encryption")
                     closeKeyboard(binding.decryptionSelection)
                     clearFields()
                     Snackbar.make(
@@ -81,6 +82,7 @@ class AsymmetricCryptographyActivity : AppCompatActivity() {
                 }
                 checkId == R.id.decryption_selection -> {
                     supportActionBar(R.id.decryption_selection)
+                    reverseEditText("decryption")
                     closeKeyboard(binding.encryptionSelection)
                     clearFields()
                     Snackbar.make(
@@ -99,7 +101,6 @@ class AsymmetricCryptographyActivity : AppCompatActivity() {
     }
 
     private fun encrypt(message: String): String {
-
         val encryptCipher: Cipher = Cipher.getInstance("RSA")
         encryptCipher.init(Cipher.ENCRYPT_MODE, encryptDecrypt.publicKey)
         val charsets = Charsets.UTF_8
@@ -117,8 +118,25 @@ class AsymmetricCryptographyActivity : AppCompatActivity() {
     }
 
     private fun clearFields() {
+        binding.chipertext.text?.clear()
         binding.plaintext.text?.clear()
-        binding.plaintext.text?.clear()
+        binding.plaintext.clearFocus()
+        binding.chipertext.clearFocus()
+    }
+
+    private fun reverseEditText(command: String) {
+        if (command == "encryption") {
+            binding.tfPlaintext.setStartIconDrawable(R.drawable.ic_plaintext)
+            binding.tfPlaintext.setHint(R.string.plaintext)
+            binding.tfChipertext.setStartIconDrawable(R.drawable.ic_key)
+            binding.tfChipertext.setHint(R.string.chipertext)
+        }
+        if (command == "decryption") {
+            binding.tfPlaintext.setStartIconDrawable(R.drawable.ic_key)
+            binding.tfPlaintext.setHint(R.string.chipertext)
+            binding.tfChipertext.setStartIconDrawable(R.drawable.ic_plaintext)
+            binding.tfChipertext.setHint(R.string.plaintext)
+        }
     }
 
     private fun changeRadioButtonColor(button: String) {
