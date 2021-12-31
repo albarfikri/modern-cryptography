@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun buttonClicked() {
-
         binding.btnAsymmetric.setOnClickListener{
             Intent(applicationContext, AsymmetricCryptographyActivity::class.java).also{
                 startActivity(it)

@@ -4,6 +4,165 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".ui.AsymmetricCryptographyActivity">
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tf_plaintext"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/avenir_bold"
+        app:errorEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:startIconDrawable="@drawable/ic_plaintext">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/plaintext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="@font/avenir_medium"
+            android:hint="@string/plaintext"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tf_chipertext"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/tf_plaintext"
+        app:layout_constraintStart_toStartOf="@+id/tf_plaintext"
+        app:layout_constraintTop_toBottomOf="@+id/tf_plaintext"
+        app:startIconDrawable="@drawable/ic_key">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/chipertext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="@font/avenir_medium"
+            android:hint="@string/chipertext"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RadioGroup
+        android:id="@+id/radioNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checkedButton="@+id/radio_button_1"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/tf_chipertext"
+        app:layout_constraintStart_toStartOf="@+id/tf_chipertext"
+        app:layout_constraintTop_toBottomOf="@+id/tf_chipertext">
+
+        <RadioButton
+            android:id="@+id/encryption_selection"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:checked="true"
+            android:onClick="onClick"
+            android:text="@string/encrypt" />
+
+        <RadioButton
+            android:id="@+id/decryption_selection"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:onClick="onClick"
+            android:text="@string/decrypt" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/encrypt"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:text="@string/encrypt"
+        app:layout_constraintStart_toStartOf="@+id/tf_chipertext"
+        app:layout_constraintTop_toBottomOf="@+id/radioNumber" />
+
+    <Button
+        android:id="@+id/decrypt"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="48dp"
+        android:text="@string/decrypt"
+        app:backgroundTint="@color/blue_700"
+        app:layout_constraintEnd_toEndOf="@+id/tf_chipertext"
+        app:layout_constraintTop_toBottomOf="@+id/radioNumber" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/color_btn"
+        app:layout_anchorGravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/tf_plaintext"
+        app:layout_constraintEnd_toEndOf="@+id/cardView"
+        app:layout_constraintStart_toStartOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:elevation="100dp"
+        android:shadowRadius="90"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:padding="8dp"
+            android:layout_margin="10dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/output"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/ket"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <TextView
+                android:id="@+id/tv_public_key"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="@string/public_key"
+                android:textSize="16sp"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@+id/output"
+                tools:layout_editor_absoluteX="16dp" />
+
+            <TextView
+                android:id="@+id/tv_private_key"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="@string/private_key"
+                android:gravity="center"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_public_key"
+                tools:layout_editor_absoluteX="16dp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

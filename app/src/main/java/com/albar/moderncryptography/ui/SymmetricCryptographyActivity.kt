@@ -12,6 +12,7 @@ import com.albar.moderncryptography.R
 import com.albar.moderncryptography.databinding.ActivitySymmetricCryptographyBinding
 import com.google.android.material.snackbar.Snackbar
 import com.scottyab.aescrypt.AESCrypt
+import java.lang.IllegalArgumentException
 import java.security.GeneralSecurityException
 
 
@@ -151,6 +152,8 @@ class SymmetricCryptographyActivity : AppCompatActivity(), View.OnClickListener 
             binding.result.setText(decrypted.toString())
         } catch (e: GeneralSecurityException) {
             Toast.makeText(applicationContext, "Wrong key input", Toast.LENGTH_SHORT).show()
+        } catch (e: IllegalArgumentException) {
+            Toast.makeText(applicationContext, "Message should be in chipertext", Toast.LENGTH_SHORT).show()
         }
 
     }
