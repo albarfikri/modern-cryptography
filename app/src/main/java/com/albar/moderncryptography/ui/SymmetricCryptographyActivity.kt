@@ -152,6 +152,7 @@ class SymmetricCryptographyActivity : AppCompatActivity(), View.OnClickListener 
             binding.result.setText(decrypted.toString())
         } catch (e: GeneralSecurityException) {
             Toast.makeText(applicationContext, "Wrong key input", Toast.LENGTH_SHORT).show()
+            binding.result.text.clear()
         } catch (e: IllegalArgumentException) {
             Toast.makeText(applicationContext, "Message should be in chipertext", Toast.LENGTH_SHORT).show()
         }
