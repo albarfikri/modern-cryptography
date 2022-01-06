@@ -17,4 +17,6 @@ class RsaKey() {
     val privateKey: PrivateKey = pair.private
 
     var byteForMoment: ByteArray = byteArrayOf(0x01, 0x02, 0x03)
+
+    var saveToDecrypt: String = ""
 }

@@ -10,13 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ModernCryptography">
         <activity
-            android:name=".ui.AsymmetricCryptographyActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.SymmetricCryptographyActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.SplashScreenActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
@@ -24,6 +18,17 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.AsymmetricCryptographyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.SymmetricCryptographyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
         </activity>
     </application>
 

@@ -41,12 +41,13 @@ class AsymmetricCryptographyActivity : AppCompatActivity() {
             if (!isEmptyFields) {
                 closeKeyboard(binding.encrypt)
                 binding.chipertext.setText(encrypt(binding.plaintext.text.toString()))
+                encryptDecrypt.saveToDecrypt = encrypt(binding.plaintext.text.toString())
             }
 
         }
 
         binding.decrypt.setOnClickListener {
-            var isEmptyFields = false
+            val isEmptyFields = false
 
 
             if (!isEmptyFields) {
@@ -69,7 +70,6 @@ class AsymmetricCryptographyActivity : AppCompatActivity() {
                     supportActionBar(R.id.encryption_selection)
                     reverseEditText("encryption")
                     closeKeyboard(binding.decryptionSelection)
-                    clearFields()
                     Snackbar.make(
                         binding.encryptionSelection,
                         R.string.encrypt_mode,
@@ -79,12 +79,15 @@ class AsymmetricCryptographyActivity : AppCompatActivity() {
                     binding.encrypt.isEnabled = true
                     binding.decrypt.isEnabled = false
                     changeRadioButtonColor("encryption")
+                    clearFields()
+                    encryptDecrypt.saveToDecrypt = ""
                 }
                 checkId == R.id.decryption_selection -> {
                     supportActionBar(R.id.decryption_selection)
                     reverseEditText("decryption")
                     closeKeyboard(binding.encryptionSelection)
                     clearFields()
+                    binding.plaintext.setText(encryptDecrypt.saveToDecrypt)
                     Snackbar.make(
                         binding.decryptionSelection,
                         R.string.decrypt_mode,

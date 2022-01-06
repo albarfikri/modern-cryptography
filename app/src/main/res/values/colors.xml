@@ -13,4 +13,5 @@
     <color name="disabled">#E2919191</color>
     <color name="red_200">#f48fb1</color>
     <color name="red_700">#c2185b</color>
+    <color name="main">#fafafa</color>
 </resources>

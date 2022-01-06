@@ -18,4 +18,5 @@
     <string name="ket">Note</string>
     <string name="public_key">Public and Private key have been generated randomly</string>
     <string name="private_key">Input message only</string>
+    <string name="tag_line">with Symmetric and Asymmetric key</string>
 </resources>
